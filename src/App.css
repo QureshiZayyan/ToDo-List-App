@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(100, 91, 91);
+    font-family: 'Poppins', sans-serif;
+}
+
+.heading {
+    padding: 25px 20px;
+}
+
+.list {
+    padding: 7px;
+    width: 30%;
+    width: 50%;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: rgb(250, 246, 246);
+}
+
+.list:focus {
+    outline: none;
+}
+
+.btn {
+    padding: 7px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 10px;
+    background-color: rgb(40, 36, 36);
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    position: relative;
+    bottom: 40px;
+}
+
+ul li {
+    width: 50%;
+    list-style: none;
+    border: 2px solid black;
+    background-color: whitesmoke;
+    padding: 4px 0 3px 7.5px;
+    margin-bottom: 14px;
+    font-weight: bolder;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    overflow-y: scroll;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100px;
+}
+
+li span {
+    border-radius: 3px;
+    color: red;
+    position: absolute;
+    right: 21vw;
+    padding: 0 4px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.list {
+    font-weight: bolder;
+}
+
+@media (max-width:805px) {
+  li span {
+
+      right: 19.5vw;
+  }
+}
+
+@media(max-width:570px) {
+
+  .main {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .btn {
+      margin: 15px 0 5px 0;
+  }
+
+  li span {
+
+      right: 17.5vw;
+  }
+}
+
+@media(max-width:420px) {
+
+  li span {
+
+      right: 15.5vw;
+  }
+}
