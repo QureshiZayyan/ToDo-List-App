@@ -27,6 +27,19 @@ body {
     outline: none;
 }
 
+.listvalue {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.listvalue p {
+    width: 500px;
+    background-color: white;
+    margin: 10px auto;
+}
+
 .btn {
     padding: 7px;
     font-weight: bold;
@@ -79,33 +92,33 @@ li span {
 }
 
 @media (max-width:805px) {
-  li span {
+    li span {
 
-      right: 19.5vw;
-  }
+        right: 19.5vw;
+    }
 }
 
 @media(max-width:570px) {
 
-  .main {
-      display: flex;
-      flex-direction: column;
-  }
+    .main {
+        display: flex;
+        flex-direction: column;
+    }
 
-  .btn {
-      margin: 15px 0 5px 0;
-  }
+    .btn {
+        margin: 15px 0 5px 0;
+    }
 
-  li span {
+    li span {
 
-      right: 17.5vw;
-  }
+        right: 17.5vw;
+    }
 }
 
 @media(max-width:420px) {
 
-  li span {
+    li span {
 
-      right: 15.5vw;
-  }
+        right: 15.5vw;
+    }
 }
