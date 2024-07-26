@@ -4,12 +4,13 @@ import './App.css'
 function App() {
   const [text, setText] = useState('');
   const [tasks, setTasks] = useState([]);
+  const [btn, setBtn] = useState('Delete');
 
   const input = (e) => {
     setText(e.target.value);
   };
 
-  const btn = () => {
+  const onbtnclick = () => {
     if (text.trim()) {
       setTasks([...tasks, text]);
       setText('');
@@ -18,7 +19,7 @@ function App() {
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      btn();
+      onbtnclick();
     }
   };
 
@@ -28,33 +29,39 @@ function App() {
 
   return (
     <>
-      <div className="container">
-        <div className="heading">
-          <h2>My ToDo List</h2>
-        </div>
+      <main>
+        <div className="container">
+          <section className="one">
+            <div className="heading">
+              <h2>My ToDo List</h2>
+            </div>
 
-        <div className="main">
-          <input
-            type="text"
-            id="name"
-            name="name"
-            className="list"
-            value={text}
-            onChange={input}
-            onKeyDown={handleKeyDown}
-          />
-          <button className="btn" onClick={btn}>Add List</button>
-        </div>
+            <div className="Addtask">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                className="list"
+                value={text}
+                onChange={input}
+                onKeyDown={handleKeyDown}
+              />
+              <button className="btn" onClick={onbtnclick}>Add List</button>
+            </div>
+          </section>
 
-        <button onClick={reset}>reset</button>
-        <div className="listvalue">
-          <div className="lists">
-            {tasks.map((task, index) => (
-              <p key={index}>{task}</p>
-            ))}
-          </div>
+          <section className="two">
+            <div className="todo-list">
+              {tasks.map((task, index) => (
+                <div className="list-container">
+                  <p key={index}>{task}</p>
+                  <button className='btn' key={{ index }}>{btn}</button>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
-      </div>
+      </main >
     </>
   );
 }
