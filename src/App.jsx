@@ -22,6 +22,10 @@ function App() {
     }
   };
 
+  const reset = () => {
+    setTasks([]);
+  }
+
   return (
     <>
       <div className="container">
@@ -42,6 +46,7 @@ function App() {
           <button className="btn" onClick={btn}>Add List</button>
         </div>
 
+        <button onClick={reset}>reset</button>
         <div className="listvalue">
           <div className="lists">
             {tasks.map((task, index) => (
