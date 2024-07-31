@@ -1,69 +1,41 @@
-import React, { useState } from 'react';
-import './App.css'
+import './App.css';
+import { useState } from 'react';
 
-function App() {
+const App = () => {
   const [text, setText] = useState('');
-  const [tasks, setTasks] = useState([]);
-  const [btn, setBtn] = useState('Delete');
+  const [input, setInputtext] = useState('');
 
-  const input = (e) => {
-    setText(e.target.value);
-  };
+  const change = (e) => {
+    setInputtext(e.target.value);
+  }
 
-  const onbtnclick = () => {
-    if (text.trim()) {
-      setTasks([...tasks, text]);
-      setText('');
-    }
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      onbtnclick();
-    }
-  };
-
-  const reset = () => {
-    setTasks([]);
+  const submit = (e) => {
+    e.preventDefault();
+    setText(input);
+    setInputtext('');
   }
 
   return (
     <>
-      <main>
-        <div className="container">
-          <section className="one">
-            <div className="heading">
-              <h2>My ToDo List</h2>
-            </div>
+      <div className="container">
+        <div className="heading">
+          <h2>My ToDo List</h2>
 
-            <div className="Addtask">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                className="list"
-                value={text}
-                onChange={input}
-                onKeyDown={handleKeyDown}
-              />
-              <button className="btn" onClick={onbtnclick}>Add List</button>
-            </div>
-          </section>
-
-          <section className="two">
-            <div className="todo-list">
-              {tasks.map((task, index) => (
-                <div className="list-container">
-                  <p key={index}>{task}</p>
-                  <button className='btn' key={{ index }}>{btn}</button>
-                </div>
-              ))}
-            </div>
-          </section>
         </div>
-      </main >
+
+        <div className="main">
+          <form onSubmit={submit}>
+            <input type="text" id="name" name="name" className="list" onChange={change} value={input} />
+            <button className="btn">Add List</button>
+          </form>
+        </div>
+
+        <div className="listvalue">
+          <p>{text}</p>
+        </div>
+      </div >
     </>
-  );
+  )
 }
 
-export default App;
+export default App
