@@ -18,8 +18,8 @@ const Todo = () => {
 
   return (
     <>
-    <MdDelete className='icons' size={40}/>
-    <FaCheckCircle className='icons' size={40}/>
+      <MdDelete className='icons' size={40} />
+      <FaCheckCircle className='icons' size={40} />
       <div className="container">
         <div className="heading">
           <h2>My ToDo List</h2>
