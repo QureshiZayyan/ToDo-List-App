@@ -2,43 +2,49 @@ import React from 'react'
 import { useState } from 'react';
 import { MdDelete } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
+import { ImInsertTemplate } from 'react-icons/im';
 
 const Todo = () => {
-  const [todo, setTodo] = useState('');
-  const [todolist, setTodoList] = useState([]);
   const [input, setInput] = useState('');
+  const [todolist, setTodoList] = useState([]);
 
   const submit = (e) => {
     e.preventDefault();
     if (!input) return;
-    setTodo(input);
-    setTodoList([...todolist, todo])
+    setTodoList([...todolist, input]);
     setInput('');
   }
 
+  const handleDelete = (index) => {
+    setTodoList(todolist.filter((_, i) => i !== index));
+  };
+
+
   return (
     <>
-      <MdDelete className='icons' size={40} />
-      <FaCheckCircle className='icons' size={40} />
-      <div className="container">
+      {/* <MdDelete className='icons' size={40} />
+      <FaCheckCircle className='icons' size={40} /> */}
+      <div className="container bg-gray-500 mx-auto flex items-center justify-center flex-col">
         <div className="heading">
-          <h2>My ToDo List</h2>
+          {/* <h2 className='text-center text-3xl'>My ToDo List</h2> */}
         </div>
-        <div className="main">
+        <div className="main my-11">
           <form onSubmit={submit}>
-            <input type="text" id="name" name="name" className="list" value={input} onChange={(e) => setInput(e.target.value)} />
-            <button className="btn">Add List</button>
+            <input type="text" id="name" name="name" className="list w-[35vw] p-1 rounded-md focus:outline-none" value={input} onChange={(e) => setInput(e.target.value)} />
+            <button className="btn bg-blue-500 mx-2 p-1 rounded-md">Add List</button>
           </form>
         </div>
 
         <div className="listvalue">
-          <ul>
-            {todolist.map((todo, index) => (
-              <li key={index}>
-                {todo}
-                <button onClick={() => removeTodo(index)}>Remove</button>
-              </li>
-            ))}
+          <ul className='flex iteme-center flex-col'>
+            {
+              todolist.map((item, index) => (
+                <li className="flex items-center justify-between bg-slate-50 my-2 w-96 max-h-20 overflow-y-scroll overflow-hidden rounded-md p-1" key={index}>
+                  {item}
+                  <MdDelete className="" size={30} onClick={() => handleDelete(index)} />
+                </li>
+              ))
+            }
           </ul>
         </div>
       </div >
