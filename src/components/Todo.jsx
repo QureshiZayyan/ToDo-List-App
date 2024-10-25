@@ -8,12 +8,29 @@ const Todo = () => {
   const [input, setInput] = useState('');
   const [todolist, setTodoList] = useState([]);
 
+  // const submit = (e) => {
+  //   e.preventDefault();
+  //   if (!input) return;
+  //   setTodoList([...todolist, input]);
+  //   localStorage.setItem(input);
+  //   setInput('');
+  // }
+
   const submit = (e) => {
     e.preventDefault();
-    if (!input) return;
-    setTodoList([...todolist, input]);
+    if (!input) return alert('add list');
+
+    const updatedTodoList = [...todolist, input];
+    setTodoList(updatedTodoList);
+
+    localStorage.setItem('todos', JSON.stringify(updatedTodoList));
     setInput('');
-  }
+  };
+
+  useEffect(() => {
+    const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
+    setTodoList(savedTodos);
+  }, []);
 
   const handleDelete = (index) => {
     setTodoList(todolist.filter((_, i) => i !== index));
