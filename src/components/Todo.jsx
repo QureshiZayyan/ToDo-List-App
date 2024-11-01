@@ -38,11 +38,8 @@ const Todo = () => {
 
   return (
     <>
-      {/* <MdDelete className='icons' size={40} />
-      <FaCheckCircle className='icons' size={40} /> */}
       <div className="container mx-auto flex items-center justify-center flex-col">
         <div className="heading">
-          {/* <h2 className='text-center text-3xl'>My ToDo List</h2> */}
         </div>
         <div className="main my-11">
           <form onSubmit={submit}>
